@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>ruhuang2001.github.io</id>
+    <title>Ruhuang‘s blog</title>
+    <updated>2021-07-13T07:16:36.458Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="ruhuang2001.github.io"/>
+    <link rel="self" href="ruhuang2001.github.io/atom.xml"/>
+    <logo>https://static.gridea.dev/291395704693195273/o8jm22k8T.jpg</logo>
+    <icon>https://static.gridea.dev/291395704693195273/o8jm22k8T.jpg</icon>
+    <rights>All rights reserved 2021, Ruhuang‘s blog</rights>
+    <entry>
+        <title type="html"><![CDATA[LeetCode暑期刷题（一）]]></title>
+        <id>https://ruhuang2001.github.io/leetcode-shu-qi-shua-ti-yi</id>
+        <link href="https://ruhuang2001.github.io/leetcode-shu-qi-shua-ti-yi"/>
+        <updated>2021-07-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[为了备考明年蓝桥杯，提升代码能力从，从昨天开始刷题啦！之前刷过一点，但是顺序比较乱，暂时以LeetCode发布的20天刷题计划来刷题。
+
+第一天是三道二分查找的题（难度还行）
+
+不过可能是很少做题的原因收获还是有的
+
+设置mid是用mid ...]]></summary>
+        <content type="html"><![CDATA[<p>为了备考明年蓝桥杯，提升代码能力从，从昨天开始刷题啦！之前刷过一点，但是顺序比较乱，暂时以LeetCode发布的20天刷题计划来刷题。</p>
+<hr>
+<p>第一天是三道二分查找的题（难度还行）</p>
+<p><img src="https://static.gridea.dev/291395704693195273/Gg8Qn-VuB.png" alt="" loading="lazy"></p>
+<p>不过可能是很少做题的原因收获还是有的</p>
+<ul>
+<li>设置mid是用<code>mid = left + (right - left) / 2;</code>目的是为了避免边界溢出，如果left和right太大，left+right就会溢出。</li>
+<li>if条件写比较确定的，把不确定的放在else内。</li>
+</ul>
+<p>另外还找到了一篇关于二分查找的<a href="https://leetcode-cn.com/problems/search-insert-position/solution/te-bie-hao-yong-de-er-fen-cha-fa-fa-mo-ban-python-/">文章</a>，写的很详细，后期会看一下</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Start]]></title>
+        <id>https://ruhuang2001.github.io/start</id>
+        <link href="https://ruhuang2001.github.io/start"/>
+        <updated>2021-07-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hi，这里是如荒: )
+Nice to see you!
+
+不知道这是第几次尝试写博客了（×），希望这次能坚持久一点...
+目前此博客用于存放学习笔记和感想，更像是一个文章收集箱，更新的频率会比知乎高。
+不过这里的文章会随意一点，总之写的开...]]></summary>
+        <content type="html"><![CDATA[<p>Hi，这里是如荒: )<br>
+Nice to see you!</p>
+<hr>
+<p>不知道这是第几次尝试写博客了（×），希望这次能坚持久一点...</p>
+<p>目前此博客用于存放学习笔记和感想，更像是一个文章收集箱，更新的频率会比知乎高。</p>
+<p>不过这里的文章会随意一点，总之写的开心就好。</p>
+<p><strong>Just for fun！</strong></p>
+<hr>
+<p>Find me ↓<br>
+知乎：https://www.zhihu.com/people/ruhuang<br>
+Blog：https://ruhuang.ongridea.com</p>
+]]></content>
+    </entry>
+</feed>

@@ -110,6 +110,7 @@ body
     font-size: 0.85em;
     font-weight: 500;
     margin: 10px 10px;
+    text-align: center;
     opacity: 0.5;
 }
 .card .content .details .actionBtn

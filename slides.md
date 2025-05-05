@@ -5,8 +5,7 @@ highlighter: shiki
 transition: none
 ---
 
-<link rel="stylesheet" href="global.css">
-
+<link rel="stylesheet" href="styles/index.css">
 
 # AI 辅助开发指北
 

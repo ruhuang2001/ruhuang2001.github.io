@@ -1,0 +1,239 @@
+/* 全局样式覆盖 */
+
+/* 针对Slidev特定的链接样式 */
+.slidev-layout a,
+
+.slidev-layout a:active {
+  border-bottom: 0px solid !important;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 44px;
+  height: 44px;
+}
+
+.avatar-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+  animation: rotate 4s linear infinite;
+  z-index: 1;
+}
+
+.avatar-content {
+  position: absolute;
+  top: 2px;  /* 与 padding 相同 */
+  left: 2px;  /* 与 padding 相同 */
+  right: 2px;  /* 与 padding 相同 */
+  bottom: 2px;  /* 与 padding 相同 */
+  border-radius: 50%;
+  overflow: hidden;
+  background: white;
+  z-index: 2;
+}
+
+.avatar-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moveTitle {
+  0% {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.4rem;
+  }
+  100% {
+    top: 0.10rem;
+    left: 1rem;
+    transform: translate(0, 0);
+    font-size: 1rem;
+    opacity: 0.3;
+  }
+}
+
+.animated-title {
+  position: fixed;
+  z-index: 10;
+  animation: moveTitle 1s ease forwards;
+  white-space: nowrap;
+}
+
+.slide-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-enter-active {
+  transition: all 1s ease;
+}
+
+@keyframes moveToTitle {
+  0% {
+    opacity: 1;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    font-size: 1rem;  /* 初始大小和主标题保持一致 */
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+    font-size: 1rem;  /* 最终大小和主标题保持一致 */
+  }
+}
+
+.main-title {
+  position: fixed;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 1rem;
+  opacity: 0.4;
+  font-weight: normal; /* 确保字重一致 */
+}
+
+.sub-title {
+  position: fixed;
+  top: 0.5rem;
+  left: 8rem;
+  opacity: 1;
+  animation: moveToTitle 1s ease forwards;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  font-weight: normal; /* 确保字重一致 */
+}
+
+.sub-title::before {
+  content: '/';
+  margin: 0 0.5rem;
+  opacity: 0.5;
+}
+
+.static-main-title {
+  position: fixed;
+  top: 0.5rem;
+  left: 1rem;
+  font-size: 1rem;
+  opacity: 0.4;
+  font-weight: normal;
+}
+
+.static-sub-title {
+  position: fixed;
+  top: 0.5rem;
+  left: 8rem;
+  font-size: 1rem;
+  opacity: 1;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+}
+
+.static-sub-title::before {
+  content: '/';
+  margin: 0 0.5rem;
+  opacity: 0.5;
+}
+
+.axis-label {
+  font-size: 14px;
+  fill: #666;
+}
+
+.dark .axis-label {
+  fill: #fff; /* 暗色模式下改为白色 */
+}
+
+.dark .invert-in-dark {
+  filter: invert(1);
+}
+
+/* 提高坐标轴线条在暗色模式下的对比度 */
+.animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 1s ease-out forwards;
+}
+
+.dark .animate-draw {
+  stroke: #fff; /* 暗色模式下改为白色 */
+}
+
+/* 坐标轴箭头在暗色模式下的颜色 */
+.dark #arrowhead polygon {
+  fill: #fff;
+}
+
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 1s ease-out forwards;
+}
+
+.point {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.point-label {
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out 0.3s forwards;
+}
+
+.dark .point-label {
+  fill: #fff; /* 暗色模式下改为白色 */
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.7); /* 添加文字阴影增加对比度 */
+}
+
+.line {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 1s ease-out forwards;
+}
+
+.thank-you-section {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}

@@ -3,41 +3,542 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ruhuang2001's Talks</title>
+  <title>ruhuang2001</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.5;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    ul {
-      list-style-type: none;
+      line-height: 1.6;
+      color: #333;
+      margin: 0;
       padding: 0;
+      background-color: #fff;
     }
-    li {
-      margin-bottom: 15px;
+    
+    main {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
-    a {
-      color: #0366d6;
-      text-decoration: none;
+    
+    /* Header Styles */
+    header {
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      transition: all 0.3s ease;
+      width: 100%;
+      left: 0;
+      right: 0;
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    body.scrolled header {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      font-weight: bold;
       font-size: 18px;
+      display: flex;
+      align-items: center;
+      margin-left: 0;
     }
-    a:hover {
+    
+    .logo img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .logo span {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .logo span::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #4a6baf;
+      transition: width 0.3s ease;
+    }
+    
+    .logo:hover span::after {
+      width: 100%;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav li {
+      margin-left: 20px;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-size: 14px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: #4a6baf;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4a6baf;
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    /* Main Content Styles */
+    main {
+      padding: 20px 0 60px;
+    }
+    
+    .page {
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    
+    .page.active {
+      display: block;
+      animation: fadeInUp 0.5s forwards;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 16px;
+      font-weight: normal;
+    }
+    
+    h2 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 30px;
+      height: 2px;
+      background-color: #4a6baf;
+      transition: width 0.3s ease;
+    }
+    
+    h2:hover::after {
+      width: 100%;
+    }
+    
+    p {
+      margin-bottom: 16px;
+      font-size: 16px;
+      color: #333;
+    }
+    
+    /* Post List Styles */
+    .post-list {
+      margin-bottom: 20px;
+    }
+    
+    .post-item {
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 3px 5px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .post-item:hover {
+      background-color: rgba(74, 107, 175, 0.05);
+      transform: translateX(3px);
+    }
+    
+    .post-content {
+      flex: 1;
+    }
+    
+    .post-title {
+      font-size: 18px;
+      margin-bottom: 5px;
+      font-weight: normal;
+      display: inline-block;
+    }
+    
+    .post-title a {
+      color: #4a6baf;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-block;
+      font-size: 16px;
+      font-weight: normal;
+    }
+    
+    .post-title a:hover {
+      transform: translateX(5px);
+      color: #2a4b8f;
+    }
+    
+    .post-meta {
+      font-size: 14px;
+      color: #777;
+      margin-top: 5px;
+    }
+    
+    .post-date {
+      font-size: 14px;
+      color: #777;
+      min-width: 80px;
+      text-align: right;
+      padding-right: 5px;
+    }
+    
+    .more-link {
+      margin-top: 5px;
+      margin-bottom: 25px;
+      text-align: right;
+      padding-right: 5px;
+    }
+    
+    .more-link a {
+      color: #4a6baf;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      background-color: rgba(74, 107, 175, 0.05);
+    }
+    
+    .more-link a::after {
+      content: '→';
+      margin-left: 4px;
+      transition: transform 0.3s ease;
+    }
+    
+    .more-link a:hover {
+      background-color: rgba(74, 107, 175, 0.15);
+      color: #2a4b8f;
+    }
+    
+    .more-link a:hover::after {
+      transform: translateX(3px);
+    }
+    
+    /* About Page Styles */
+    .about-content {
+      max-width: 600px;
+    }
+    
+    .social-links {
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      color: #000;
+      margin-right: 15px;
+      font-size: 18px;
+      text-decoration: none;
+    }
+    
+    /* Footer Styles */
+    footer {
+      padding: 20px 0;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      border-top: 1px solid #eee;
+      margin-top: 40px;
+    }
+    
+    /* Pagination */
+    .pagination {
+      text-align: right;
+      margin-top: 40px;
+    }
+    
+    .pagination a {
+      color: #000;
+      text-decoration: none;
+    }
+    
+    .pagination a:hover {
       text-decoration: underline;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      nav {
+        margin-top: 15px;
+      }
+      
+      nav ul {
+        flex-wrap: wrap;
+      }
+      
+      nav li:first-child {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
-<body>
-  <h1>ruhuang2001's Talks</h1>
+<body onload="window.scrollTo(0, 0);">
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="https://github.com/ruhuang2001.png" alt="ruhuang2001">
+        <span>ruhuang2001's Blog</span>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home" class="active" data-page="home">首页</a></li>
+          <li><a href="#blogs" data-page="blogs">博客</a></li>
+          <li><a href="#talks" data-page="talks">演讲</a></li>
+          <li><a href="#about" data-page="about">关于</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   
-  <ul>
-    <li><a href="./talks/aigc-dev/">AIGC 辅助开发指北</a></li>
-  </ul>
+  <main>
+    <!-- Home Page -->
+    <section id="home" class="page active">
+      <h2>最新博客</h2>
+      <div class="post-list">
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="#">2024年终总结</a></div>
+          </div>
+          <div class="post-date">24/12/30</div>
+        </div>
+        
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="#">周记 (2024.10.28-2024.12.15)</a></div>
+          </div>
+          <div class="post-date">24/12/15</div>
+        </div>
+        
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="#">周记 (2024.10.20-2024.10.27)</a></div>
+          </div>
+          <div class="post-date">24/10/27</div>
+        </div>
+      </div>
+      <div class="more-link">
+        <a href="#blogs" data-page="blogs">更多博客</a>
+      </div>
+      
+      <h2>最新演讲</h2>
+      <div class="post-list">
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="./talks/aigc-dev/">AIGC 辅助开发指北</a></div>
+          </div>
+          <div class="post-date">25/05/27</div>
+        </div>
+      </div>
+      <div class="more-link">
+        <a href="#talks" data-page="talks">更多演讲</a>
+      </div>
+    </section>
+    
+    <!-- Blogs Page -->
+    <section id="blogs" class="page">
+      <h2>博客文章</h2>
+      
+      <div class="post-list">
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="#">2024年终总结</a></div>
+          </div>
+          <div class="post-date">24/12/30</div>
+        </div>
+        
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="#">周记 (2024.10.28-2024.12.15)</a></div>
+          </div>
+          <div class="post-date">24/12/15</div>
+        </div>
+        
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="#">周记 (2024.10.20-2024.10.27)</a></div>
+          </div>
+          <div class="post-date">24/10/27</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Talks Page -->
+    <section id="talks" class="page">
+      <h2>演讲</h2>
+      
+      <div class="post-list">
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="./talks/aigc-dev/">AIGC 辅助开发指北</a></div>
+          </div>
+          <div class="post-date">25/05/27</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- About Page -->
+    <section id="about" class="page">
+      
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>© ruhuang 2024 - 2025</p>
+  </footer>
+  
+  <script>
+    // Simple page navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      // 初始加载时滚动到顶部
+      window.scrollTo(0, 0);
+      
+      // 处理响应哈希变化
+      window.addEventListener('hashchange', function() {
+        window.scrollTo(0, 0);
+      });
+      
+      // 检测页面滚动，添加scrolled类
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+          document.body.classList.add('scrolled');
+        } else {
+          document.body.classList.remove('scrolled');
+        }
+      });
+      const navLinks = document.querySelectorAll('nav a');
+      const pages = document.querySelectorAll('.page');
+      
+      // Handle navigation clicks
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.getAttribute('target') === '_blank') return;
+          e.preventDefault();
+          
+          // Update active link
+          navLinks.forEach(l => l.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Show active page
+          const pageId = this.getAttribute('data-page');
+          pages.forEach(page => {
+            page.classList.remove('active');
+          });
+          document.getElementById(pageId).classList.add('active');
+          
+          // 滚动到顶部
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+          
+          // Update URL hash
+          window.location.hash = pageId;
+        });
+      });
+      
+      // Handle direct navigation via URL hash
+      function handleHashChange() {
+        const hash = window.location.hash.substring(1) || 'home';
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('data-page') === hash) {
+            link.classList.add('active');
+          }
+        });
+        
+        pages.forEach(page => {
+          page.classList.remove('active');
+          if (page.id === hash) {
+            page.classList.add('active');
+          }
+        });
+      }
+      
+      window.addEventListener('hashchange', handleHashChange);
+      
+      // Initial load
+      if (window.location.hash) {
+        handleHashChange();
+      }
+    });
+  </script>
 </body>
 </html>

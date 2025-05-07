@@ -6,6 +6,32 @@
   <title>ruhuang2001</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      /* 亮色主题颜色变量 */
+      --bg-color: #fff;
+      --text-color: #333;
+      --header-bg: rgba(255, 255, 255, 0.5);
+      --link-color: #4a6baf;
+      --link-hover: #2a4b8f;
+      --meta-color: #777;
+      --border-color: #eee;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+      --footer-color: #666;
+    }
+    
+    [data-theme="dark"] {
+      /* 暗色主题颜色变量 */
+      --bg-color: #1a1a1a;
+      --text-color: #e0e0e0;
+      --header-bg: rgba(26, 26, 26, 0.5);
+      --link-color: #7a9bdf;
+      --link-hover: #a0bbff;
+      --meta-color: #aaa;
+      --border-color: #333;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+      --footer-color: #999;
+    }
+    
     * {
       margin: 0;
       padding: 0;
@@ -15,10 +41,11 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.6;
-      color: #333;
+      color: var(--text-color);
       margin: 0;
       padding: 0;
-      background-color: #fff;
+      background-color: var(--bg-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     
     main {
@@ -36,7 +63,7 @@
       margin-bottom: 20px;
       position: sticky;
       top: 0;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: var(--header-bg);
       backdrop-filter: blur(10px);
       z-index: 100;
       transition: all 0.3s ease;
@@ -57,7 +84,7 @@
     body.scrolled header {
       padding-top: 10px;
       padding-bottom: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px var(--shadow-color);
     }
     
     .logo {
@@ -87,7 +114,7 @@
       left: 0;
       width: 0;
       height: 1px;
-      background-color: #4a6baf;
+      background-color: var(--link-color);
       transition: width 0.3s ease;
     }
     
@@ -106,14 +133,14 @@
     
     nav a {
       text-decoration: none;
-      color: #333;
+      color: var(--text-color);
       font-size: 14px;
       position: relative;
       transition: color 0.3s ease;
     }
     
     nav a:hover {
-      color: #4a6baf;
+      color: var(--link-color);
     }
     
     nav a::after {
@@ -123,7 +150,7 @@
       height: 2px;
       bottom: -4px;
       left: 0;
-      background-color: #4a6baf;
+      background-color: var(--link-color);
       transition: width 0.3s ease;
     }
     
@@ -167,7 +194,7 @@
     h2 {
       font-size: 16px;
       margin-bottom: 15px;
-      color: #333;
+      color: var(--text-color);
       font-weight: 500;
       position: relative;
       display: inline-block;
@@ -180,7 +207,7 @@
       left: 0;
       width: 30px;
       height: 2px;
-      background-color: #4a6baf;
+      background-color: var(--link-color);
       transition: width 0.3s ease;
     }
     
@@ -191,7 +218,7 @@
     p {
       margin-bottom: 16px;
       font-size: 16px;
-      color: #333;
+      color: var(--text-color);
     }
     
     /* Post List Styles */
@@ -226,7 +253,7 @@
     }
     
     .post-title a {
-      color: #4a6baf;
+      color: var(--link-color);
       text-decoration: none;
       transition: all 0.3s ease;
       display: inline-block;
@@ -236,18 +263,18 @@
     
     .post-title a:hover {
       transform: translateX(5px);
-      color: #2a4b8f;
+      color: var(--link-hover);
     }
     
     .post-meta {
       font-size: 14px;
-      color: #777;
+      color: var(--meta-color);
       margin-top: 5px;
     }
     
     .post-date {
       font-size: 14px;
-      color: #777;
+      color: var(--meta-color);
       min-width: 80px;
       text-align: right;
       padding-right: 5px;
@@ -261,7 +288,7 @@
     }
     
     .more-link a {
-      color: #4a6baf;
+      color: var(--link-color);
       text-decoration: none;
       font-size: 14px;
       padding: 4px 10px;
@@ -280,7 +307,7 @@
     
     .more-link a:hover {
       background-color: rgba(74, 107, 175, 0.15);
-      color: #2a4b8f;
+      color: var(--link-hover);
     }
     
     .more-link a:hover::after {
@@ -297,7 +324,7 @@
     }
     
     .social-links a {
-      color: #000;
+      color: var(--text-color);
       margin-right: 15px;
       font-size: 18px;
       text-decoration: none;
@@ -307,9 +334,8 @@
     footer {
       padding: 20px 0;
       font-size: 14px;
-      color: #666;
+      color: var(--footer-color);
       text-align: center;
-      border-top: 1px solid #eee;
       margin-top: 40px;
     }
     
@@ -326,6 +352,27 @@
     
     .pagination a:hover {
       text-decoration: underline;
+    }
+    
+    /* Theme Toggle Button */
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 16px;
+      margin-left: 15px;
+    }
+    
+    .theme-toggle:hover {
+      background-color: rgba(74, 107, 175, 0.1);
     }
     
     /* Responsive Styles */
@@ -362,6 +409,7 @@
           <li><a href="#blogs" data-page="blogs">博客</a></li>
           <li><a href="#talks" data-page="talks">演讲</a></li>
           <li><a href="#about" data-page="about">关于</a></li>
+          <li><button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fas fa-moon"></i></button></li>
         </ul>
       </nav>
     </div>
@@ -461,7 +509,7 @@
   </main>
   
   <footer>
-    <p>© ruhuang 2024 - 2025</p>
+    <p>© ruhuang2001</p>
   </footer>
   
   <script>
@@ -481,6 +529,35 @@
           document.body.classList.add('scrolled');
         } else {
           document.body.classList.remove('scrolled');
+        }
+      });
+      
+      // 主题切换功能
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = themeToggle.querySelector('i');
+      
+      // 检查本地存储中的主题设置
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+      
+      // 主题切换按钮点击事件
+      themeToggle.addEventListener('click', function() {
+        if (document.documentElement.getAttribute('data-theme') === 'dark') {
+          // 切换到亮色主题
+          document.documentElement.removeAttribute('data-theme');
+          localStorage.setItem('theme', 'light');
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+        } else {
+          // 切换到暗色主题
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
         }
       });
       const navLinks = document.querySelectorAll('nav a');

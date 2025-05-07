@@ -28,11 +28,33 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
-      - name: Install dependencies
-        run: nci
+      - name: Copy index.html to dist
+        run: |
+          mkdir -p dist
+          cp index.html dist/
 
-      - name: Build
-        run: nr build
+      # 构建 aigc-dev 演示文稿
+      - name: Install dependencies for aigc-dev
+        run: |
+          cd talks/aigc-dev
+          nci
+
+      - name: Build aigc-dev
+        run: |
+          cd talks/aigc-dev
+          nr build
+          mkdir -p ../../dist/talks/aigc-dev
+          cp -r dist/* ../../dist/talks/aigc-dev/
+
+      # 未来可以在这里添加更多演示文稿的构建步骤
+      # 例如:
+      # - name: Build another-talk
+      #   run: |
+      #     cd talks/another-talk
+      #     nci
+      #     nr build
+      #     mkdir -p ../../dist/talks/another-talk
+      #     cp -r dist/* ../../dist/talks/another-talk/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,19 @@
       --border-color: #eee;
       --shadow-color: rgba(0, 0, 0, 0.1);
       --footer-color: #666;
+      
+      /* 中文文本 */
+      --home-title: "最新博客";
+      --blogs-title: "博客文章";
+      --talks-title: "演讲";
+      --about-title: "关于";
+      --more-talks: "更多演讲";
+      --more-blogs: "更多博客";
+      --latest-talks: "最新演讲";
+      --nav-home: "首页";
+      --nav-blogs: "博客";
+      --nav-talks: "演讲";
+      --nav-about: "关于";
     }
     
     [data-theme="dark"] {
@@ -30,6 +43,21 @@
       --border-color: #333;
       --shadow-color: rgba(0, 0, 0, 0.3);
       --footer-color: #999;
+    }
+    
+    [data-lang="en"] {
+      /* 英文文本 */
+      --home-title: "Latest Blogs";
+      --blogs-title: "Blog Posts";
+      --talks-title: "Talks";
+      --about-title: "About";
+      --more-talks: "More Talks";
+      --more-blogs: "More Blogs";
+      --latest-talks: "Latest Talks";
+      --nav-home: "Home";
+      --nav-blogs: "Blogs";
+      --nav-talks: "Talks";
+      --nav-about: "About";
     }
     
     * {
@@ -355,7 +383,7 @@
     }
     
     /* Theme Toggle Button */
-    .theme-toggle {
+    .theme-toggle, .lang-toggle {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -368,16 +396,22 @@
       cursor: pointer;
       transition: all 0.3s ease;
       font-size: 16px;
-      margin-left: 15px;
+      margin-left: 30px;
     }
     
     .theme-toggle:hover {
       background-color: rgba(74, 107, 175, 0.1);
     }
     
+    /* 导航按钮容器 */
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+    }
+    
     /* Responsive Styles */
     @media (max-width: 600px) {
-      header {
+      .header-container {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -393,6 +427,10 @@
       nav li:first-child {
         margin-left: 0;
       }
+      
+      .nav-buttons {
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -405,11 +443,14 @@
       </div>
       <nav>
         <ul>
-          <li><a href="#home" class="active" data-page="home">首页</a></li>
-          <li><a href="#blogs" data-page="blogs">博客</a></li>
-          <li><a href="#talks" data-page="talks">演讲</a></li>
-          <li><a href="#about" data-page="about">关于</a></li>
-          <li><button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fas fa-moon"></i></button></li>
+          <li><a href="#home" data-page="home" data-i18n="nav-home">首页</a></li>
+          <li><a href="#blogs" data-page="blogs" data-i18n="nav-blogs">博客</a></li>
+          <li><a href="#talks" data-page="talks" data-i18n="nav-talks">演讲</a></li>
+          <li><a href="#about" data-page="about" data-i18n="nav-about">关于</a></li>
+          <li class="nav-buttons">
+            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fas fa-moon"></i></button>
+            <button id="lang-toggle" class="lang-toggle" aria-label="切换语言"><i class="fas fa-language"></i></button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -418,7 +459,7 @@
   <main>
     <!-- Home Page -->
     <section id="home" class="page active">
-      <h2>最新博客</h2>
+      <h2 data-i18n="home-title">最新博客</h2>
       <div class="post-list">
         <div class="post-item">
           <div class="post-content">
@@ -442,10 +483,10 @@
         </div>
       </div>
       <div class="more-link">
-        <a href="#blogs" data-page="blogs">更多博客</a>
+        <a href="#blogs" data-page="blogs" data-i18n="more-blogs">更多博客</a>
       </div>
       
-      <h2>最新演讲</h2>
+      <h2 data-i18n="latest-talks">最新演讲</h2>
       <div class="post-list">
         <div class="post-item">
           <div class="post-content">
@@ -455,13 +496,13 @@
         </div>
       </div>
       <div class="more-link">
-        <a href="#talks" data-page="talks">更多演讲</a>
+        <a href="#talks" data-page="talks" data-i18n="more-talks">更多演讲</a>
       </div>
     </section>
     
     <!-- Blogs Page -->
     <section id="blogs" class="page">
-      <h2>博客文章</h2>
+      <h2 data-i18n="blogs-title">博客文章</h2>
       
       <div class="post-list">
         <div class="post-item">
@@ -489,7 +530,7 @@
     
     <!-- Talks Page -->
     <section id="talks" class="page">
-      <h2>演讲</h2>
+      <h2 data-i18n="talks-title">演讲</h2>
       
       <div class="post-list">
         <div class="post-item">
@@ -560,6 +601,48 @@
           themeIcon.classList.add('fa-sun');
         }
       });
+      
+      // 语言切换功能
+      const langToggle = document.getElementById('lang-toggle');
+      
+      // 检查本地存储中的语言设置
+      const savedLang = localStorage.getItem('lang');
+      if (savedLang === 'en') {
+        document.documentElement.setAttribute('data-lang', 'en');
+        document.documentElement.setAttribute('lang', 'en');
+        updateI18nElements();
+      }
+      
+      // 语言切换按钮点击事件
+      langToggle.addEventListener('click', function() {
+        if (document.documentElement.getAttribute('data-lang') === 'en') {
+          // 切换到中文
+          document.documentElement.setAttribute('data-lang', 'zh-CN');
+          document.documentElement.setAttribute('lang', 'zh-CN');
+          localStorage.setItem('lang', 'zh-CN');
+        } else {
+          // 切换到英文
+          document.documentElement.setAttribute('data-lang', 'en');
+          document.documentElement.setAttribute('lang', 'en');
+          localStorage.setItem('lang', 'en');
+        }
+        updateI18nElements();
+      });
+      
+      // 更新所有带有data-i18n属性的元素的内容
+      function updateI18nElements() {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          const value = getComputedStyle(document.documentElement).getPropertyValue(`--${key}`).trim().replace(/"/g, '');
+          if (value) {
+            el.textContent = value;
+          }
+        });
+      }
+      
+      // 初始化时更新一次
+      updateI18nElements();
       const navLinks = document.querySelectorAll('nav a');
       const pages = document.querySelectorAll('.page');
       

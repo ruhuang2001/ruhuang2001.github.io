@@ -43,8 +43,13 @@ jobs:
         run: |
           cd talks/aigc-dev
           nr build
+          npx slidev export --output screenshots --format png --timeout 30000
+          
           mkdir -p ../../dist/talks/aigc-dev
           cp -r dist/* ../../dist/talks/aigc-dev/
+
+          mkdir -p ../../dist/talks/aigc-dev/screenshots
+          cp screenshots/1.png ../../dist/talks/aigc-dev/screenshots/
 
       # 未来可以在这里添加更多演示文稿的构建步骤
       # 例如:

@@ -11,7 +11,7 @@
 
 html, body, #app { font-family: ui-sans-serif, system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #02060c; }
 .slidev-layout { background: radial-gradient(ellipse 78% 68% at 50% 112%, rgba(29,99,167,.36), transparent 68%), linear-gradient(125deg, #030d18 0%, #061425 47%, #020a12 100%); }
-.slidev-layout:has(.hero-title) { background: linear-gradient(90deg, rgba(1,6,12,.94) 0%, rgba(1,8,15,.72) 48%, rgba(1,8,15,.32) 100%), linear-gradient(to top, rgba(3,28,52,.5), transparent 55%), url('/cover.jpg') center/cover no-repeat; }
+.slidev-layout:has(.hero-title) { background: linear-gradient(90deg, rgba(1,6,12,.94) 0%, rgba(1,8,15,.72) 48%, rgba(1,8,15,.32) 100%), linear-gradient(to top, rgba(3,28,52,.5), transparent 55%), url('../cover.webp') center/cover no-repeat; }
 .slidev-layout:has(.hero-title) .ambient { opacity: .15; }
 .slidev-layout:has(.hero-title) .hero-title { max-width: 920px; text-shadow: 0 12px 60px rgba(0,0,0,.5); }
 .slidev-layout:has(.hero-title) .hero-subtitle { color: rgba(255,255,255,.7) !important; }

@@ -7,6 +7,7 @@ author: ruhuang2001
 keywords: AI, engineering, agents, developer experience
 colorSchema: dark
 transition: fade-out
+routerMode: hash
 canvasWidth: 1280
 aspectRatio: 16/9
 lineNumbers: true
@@ -16,6 +17,7 @@ download: true
 head: |
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="image" href="./cover.webp">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <style>
     :root {

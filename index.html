@@ -19,15 +19,11 @@
       --footer-color: #666;
       
       /* 中文文本 */
-      --home-title: "最新博客";
-      --blogs-title: "博客文章";
-      --talks-title: "演讲";
+      --talks-title: "所有演讲";
       --about-title: "关于";
       --more-talks: "更多演讲";
-      --more-blogs: "更多博客";
       --latest-talks: "最新演讲";
       --nav-home: "首页";
-      --nav-blogs: "博客";
       --nav-talks: "演讲";
       --nav-about: "关于";
     }
@@ -47,15 +43,11 @@
     
     [data-lang="en"] {
       /* 英文文本 */
-      --home-title: "Latest Blogs";
-      --blogs-title: "Blog Posts";
-      --talks-title: "Talks";
+      --talks-title: "All Talks";
       --about-title: "About";
       --more-talks: "More Talks";
-      --more-blogs: "More Blogs";
       --latest-talks: "Latest Talks";
       --nav-home: "Home";
-      --nav-blogs: "Blogs";
       --nav-talks: "Talks";
       --nav-about: "About";
     }
@@ -293,7 +285,7 @@
       transform: translateX(5px);
       color: var(--link-hover);
     }
-    
+
     .post-meta {
       font-size: 14px;
       color: var(--meta-color);
@@ -444,7 +436,6 @@
       <nav>
         <ul>
           <li><a href="#home" data-page="home" data-i18n="nav-home">首页</a></li>
-          <li><a href="#blogs" data-page="blogs" data-i18n="nav-blogs">博客</a></li>
           <li><a href="#talks" data-page="talks" data-i18n="nav-talks">演讲</a></li>
           <li><a href="#about" data-page="about" data-i18n="nav-about">关于</a></li>
           <li class="nav-buttons">
@@ -459,35 +450,14 @@
   <main>
     <!-- Home Page -->
     <section id="home" class="page active">
-      <h2 data-i18n="home-title">最新博客</h2>
-      <div class="post-list">
-        <div class="post-item">
-          <div class="post-content">
-            <div class="post-title"><a href="#">2024年终总结</a></div>
-          </div>
-          <div class="post-date">24/12/30</div>
-        </div>
-        
-        <div class="post-item">
-          <div class="post-content">
-            <div class="post-title"><a href="#">周记 (2024.10.28-2024.12.15)</a></div>
-          </div>
-          <div class="post-date">24/12/15</div>
-        </div>
-        
-        <div class="post-item">
-          <div class="post-content">
-            <div class="post-title"><a href="#">周记 (2024.10.20-2024.10.27)</a></div>
-          </div>
-          <div class="post-date">24/10/27</div>
-        </div>
-      </div>
-      <div class="more-link">
-        <a href="#blogs" data-page="blogs" data-i18n="more-blogs">更多博客</a>
-      </div>
-      
       <h2 data-i18n="latest-talks">最新演讲</h2>
       <div class="post-list">
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="./talks/from-chat-to-agent/">从 Chat 到 Agent</a></div>
+          </div>
+          <div class="post-date">26/07/15</div>
+        </div>
         <div class="post-item">
           <div class="post-content">
             <div class="post-title"><a href="./talks/aigc-dev/">AIGC 辅助开发指北</a></div>
@@ -500,39 +470,17 @@
       </div>
     </section>
     
-    <!-- Blogs Page -->
-    <section id="blogs" class="page">
-      <h2 data-i18n="blogs-title">博客文章</h2>
-      
-      <div class="post-list">
-        <div class="post-item">
-          <div class="post-content">
-            <div class="post-title"><a href="#">2024年终总结</a></div>
-          </div>
-          <div class="post-date">24/12/30</div>
-        </div>
-        
-        <div class="post-item">
-          <div class="post-content">
-            <div class="post-title"><a href="#">周记 (2024.10.28-2024.12.15)</a></div>
-          </div>
-          <div class="post-date">24/12/15</div>
-        </div>
-        
-        <div class="post-item">
-          <div class="post-content">
-            <div class="post-title"><a href="#">周记 (2024.10.20-2024.10.27)</a></div>
-          </div>
-          <div class="post-date">24/10/27</div>
-        </div>
-      </div>
-    </section>
-    
     <!-- Talks Page -->
     <section id="talks" class="page">
-      <h2 data-i18n="talks-title">演讲</h2>
-      
+      <h2 data-i18n="talks-title">所有演讲</h2>
+
       <div class="post-list">
+        <div class="post-item">
+          <div class="post-content">
+            <div class="post-title"><a href="./talks/from-chat-to-agent/">从 Chat 到 Agent</a></div>
+          </div>
+          <div class="post-date">26/07/15</div>
+        </div>
         <div class="post-item">
           <div class="post-content">
             <div class="post-title"><a href="./talks/aigc-dev/">AIGC 辅助开发指北</a></div>

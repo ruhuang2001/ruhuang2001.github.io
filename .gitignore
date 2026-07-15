@@ -6,3 +6,26 @@ dist
 .remote-assets
 components.d.ts
 .vscode/
+
+# Lockfiles: this project uses pnpm
+package-lock.json
+
+# Logs
+*.log
+.pnpm-debug.log*
+
+# Slidev temporary/export artifacts
+.slidev/
+slides-export*
+
+# Temporary preview deck
+_preview-covers/
+
+# Agent / IDE generated files
+.agents/
+.playwright-cli/
+output/
+skills-lock.json
+
+# Local GitLab analysis tool and generated data
+dynamic/

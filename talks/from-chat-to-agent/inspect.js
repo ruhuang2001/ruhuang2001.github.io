@@ -1,10 +1,11 @@
-const { chromium } = require('playwright-chromium');
+import { chromium } from 'playwright-chromium';
 (async () => {
   const browser = await chromium.launch();
-  const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, colorScheme: 'dark' });
-  await page.goto('http://localhost:3030/5?clicks=3', { waitUntil: 'networkidle' });
-  await page.waitForTimeout(1000);
-  const data = await page.evaluate(() => {
+  try {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 720 }, colorScheme: 'dark' });
+    await page.goto('http://localhost:3030/5?clicks=3', { waitUntil: 'networkidle' });
+    await page.waitForTimeout(1000);
+    const data = await page.evaluate(() => {
     const triPage = document.querySelector('.triangle-page');
     const tri = document.querySelector('.triangle');
     const first = document.querySelector('.first-class');
@@ -35,7 +36,9 @@ const { chromium } = require('playwright-chromium');
       })),
       svgRect: document.querySelector('.triangle__svg')?.getBoundingClientRect().toJSON(),
     };
-  });
-  console.log(JSON.stringify(data, null, 2));
-  await browser.close();
+    });
+    console.log(JSON.stringify(data, null, 2));
+  } finally {
+    await browser.close();
+  }
 })();

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useNav } from '@slidev/client'
-import { ref, watch, computed } from 'vue'
+import { computed } from 'vue'
 
 const { currentSlideRoute } = useNav()
 
@@ -24,11 +24,7 @@ function makeOffsets(slideNo: number) {
   }
 }
 
-const offsets = ref(makeOffsets(currentSlideRoute.value.no || 1))
-
-watch(currentSlideRoute, (route) => {
-  offsets.value = makeOffsets(route.no || 1)
-})
+const offsets = computed(() => makeOffsets(currentSlideRoute.value.no || 1))
 
 const orbOneStyle = computed(() => ({
   transform: `translate(${offsets.value.one.x}px, ${offsets.value.one.y}px)`,

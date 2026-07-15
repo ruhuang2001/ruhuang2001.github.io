@@ -56,15 +56,19 @@ jobs:
           mkdir -p ../../dist/talks/aigc-dev/screenshots
           cp screenshots/1.png ../../dist/talks/aigc-dev/screenshots/
 
-      # 未来可以在这里添加更多演示文稿的构建步骤
-      # 例如:
-      # - name: Build another-talk
-      #   run: |
-      #     cd talks/another-talk
-      #     nci
-      #     nr build
-      #     mkdir -p ../../dist/talks/another-talk
-      #     cp -r dist/* ../../dist/talks/another-talk/
+      # 构建 from-chat-to-agent 演示文稿
+      - name: Install dependencies for from-chat-to-agent
+        run: |
+          cd talks/from-chat-to-agent
+          nci
+
+      - name: Build from-chat-to-agent
+        run: |
+          cd talks/from-chat-to-agent
+          nr build
+
+          mkdir -p ../../dist/talks/from-chat-to-agent
+          cp -r dist/* ../../dist/talks/from-chat-to-agent/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

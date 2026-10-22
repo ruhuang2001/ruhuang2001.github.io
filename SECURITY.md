@@ -48,4 +48,8 @@ The browser acceptance report records remote Clarity analytics errors separately
 - Code highlighting, Mermaid SVG and KaTeX rendering passed in a fixture built separately with each deck's dependency tree.
 - Older-deck PNG export and newer-deck complete PDF export passed. Twelve subprocess security/compatibility cases passed.
 - npm audit reports 17 affected package nodes (including parent propagation); pnpm audit reports 4 advisory entries. Root packages remaining are braces, image-size and sprintf-js, as documented above. These counts are not directly comparable.
-- Evidence: `output/playwright/security/after/final-browser.json`, screenshots for 39 slides, `after/fixtures.txt`, `mitigations.json`, install/build/export logs and both audit JSON files. These are local ignored artifacts. No commit, push, deployment or issue closure was performed.
+- Evidence: `output/playwright/security/after/final-browser.json`, screenshots for 39 slides, `after/fixtures.txt`, `mitigations.json`, install/build/export logs and both audit JSON files. These are local ignored artifacts. These results describe local acceptance before publishing; deployment acceptance is recorded separately.
+
+### GitHub Pages routing
+
+Both decks use hash routing so direct slide reloads work on static Pages. The older deck previously used history routing; a direct `/talks/aigc-dev/2` request loaded the site-wide 404 page for the newer deck. Use `/talks/aigc-dev/#/2` for direct links. The browser regression now verifies hash URLs for both decks.

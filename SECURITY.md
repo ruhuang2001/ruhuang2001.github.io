@@ -2,6 +2,16 @@
 
 This site publishes static GitHub Pages output. Vite development server advisories concern local preview exposure; Pages does not run a Vite server.
 
+## Current status — 2026-10-22 dependency follow-up
+
+Slidev versions are 53.0.0 / 52.17.0. Both deployment trees override image-size to 2.0.4 (upstream fixes both image parser advisories). Current PptxGenJS 4.0.1 declares this dependency but does not call it in shipped code; the earlier callable/path API concern below was disproved by source inspection and image-containing PPTX export. Both trees override only js-yaml 3.15.2 -> argparse to 2.0.1, retaining its legacy API while removing sprintf-js. Keep js-yaml 3 for gray-matter safeLoad/safeDump compatibility; do not use argparse 3 here.
+
+Only braces remains affected upstream. Its exact-source depth-128 backport remains mandatory in postinstall. Retired image-size patches have been removed. Do not dismiss the remaining braces alerts or claim zero vulnerabilities. npm audit has 9 affected package nodes due to parent propagation, all from this one braces advisory; pnpm audit has one advisory. GitHub should retain two braces alerts, one per active lockfile.
+
+Validation: clean/frozen installs, both builds, 39-slide browser regression with identical text, images/navigation/reveals/reload, 12 mitigation cases, YAML CLI help/version/valid/invalid inputs, PNG/PDF/PPTX exports. Evidence: output/playwright/security-refresh/. Production acceptance is recorded there after deployment.
+
+## Historical record (superseded where noted)
+
 ## 2026-10-22 / issue #6
 
 Both decks retain their existing Slidev CLI versions (51.5.0 and 52.17.0). Refreshed compatible dependency trees resolve Vite 6.4.5 / 8.1.6, Mermaid 11.17.2, DOMPurify 3.4.17, js-yaml 3.15.2 / 4.3.2 and KaTeX 0.18.7. DOMPurify is overridden because Monaco pins an older sanitizer. KaTeX is overridden to take its trust-boundary fix.

@@ -41,7 +41,7 @@ async function scan(directory) {
 }
 const root = process.argv[2] || process.cwd()
 await scan(join(root, 'node_modules'))
-for (const name of ['braces@3.0.3', 'image-size@1.2.1']) {
+for (const name of ['braces@3.0.3']) {
   if (!applied.has(name)) throw new Error(`Expected security patch dependency missing: ${name}; review whether the patch can be retired`)
 }
 console.log(`Security mitigations verified: ${[...applied].join(', ')}`)

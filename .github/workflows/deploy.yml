@@ -23,15 +23,12 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: '24'
           
       - name: Install Chinese fonts
         run: |
           sudo apt-get update
           sudo apt-get install -y fonts-noto-cjk fonts-noto-cjk-extra
-
-      - name: Setup @antfu/ni
-        run: npm i -g @antfu/ni
 
       - name: Setup pnpm
         run: npm i -g pnpm@10.28.0
@@ -45,16 +42,23 @@ jobs:
       - name: Install dependencies for aigc-dev
         run: |
           cd talks/aigc-dev
-          nci
+          npm ci
+
+      - name: Install Chromium for aigc-dev exports
+        run: |
+          cd talks/aigc-dev
+          npx playwright install --with-deps chromium
 
       - name: Build aigc-dev
         run: |
           cd talks/aigc-dev
-          nr build
-          npx slidev export --output screenshots --format png --timeout 30000
+          npm run build
+          npx slidev export --output screenshots --format png --wait-until domcontentloaded --wait 1000 --timeout 30000
           
           mkdir -p ../../dist/talks/aigc-dev
           cp -r dist/* ../../dist/talks/aigc-dev/
+          mkdir -p ../../dist/talks/aigc-dev/styles
+          cp styles/index.css ../../dist/talks/aigc-dev/styles/
 
           mkdir -p ../../dist/talks/aigc-dev/screenshots
           cp screenshots/1.png ../../dist/talks/aigc-dev/screenshots/

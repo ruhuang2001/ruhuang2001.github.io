@@ -255,7 +255,7 @@ title: Codex / Goal / Screenshot
 ---
 
 <div class="iframe-heading">Codex / Goal</div>
-<div class="goal-screenshot-layout"><div class="case-evidence__copy"><h2>复杂问题持续验证</h2></div><div class="goal-screenshot-visual"><div class="goal-screenshot"><img src="./public/goal.JPG" alt="Codex Goal 执行过程截图" /></div><div class="case-evidence__annotation">Codex Goal 执行过程</div></div></div>
+<div class="goal-screenshot-layout"><div class="case-evidence__copy"><h2>复杂问题持续验证</h2></div><div class="goal-screenshot-visual"><div class="goal-screenshot"><img :src="'./goal.JPG'" alt="Codex Goal 执行过程截图" /></div><div class="case-evidence__annotation">Codex Goal 执行过程</div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -264,7 +264,7 @@ transition: fade
 ---
 
 <div class="iframe-heading">Codex / Computer Use &amp; Record &amp; Replay</div>
-<div class="case-evidence case-evidence--replay case-evidence--screenshot"><div class="case-evidence__copy replay-flow"><h2>UI 操作复用</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--replay"><img class="replay-skills-shot" src="./public/recap-skills.png" alt="Record &amp; Replay 生成 UniApp 打包 Skill" /></div><div class="replay-skill-caption"><span>Record &amp; Replay 生成的 <strong>UniApp 打包 Skill</strong></span></div></div></div>
+<div class="case-evidence case-evidence--replay case-evidence--screenshot"><div class="case-evidence__copy replay-flow"><h2>UI 操作复用</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--replay"><img class="replay-skills-shot" :src="'./recap-skills.png'" alt="Record &amp; Replay 生成 UniApp 打包 Skill" /></div><div class="replay-skill-caption"><span>Record &amp; Replay 生成的 <strong>UniApp 打包 Skill</strong></span></div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -273,7 +273,7 @@ transition: fade
 ---
 
 <div class="iframe-heading">Codex / Computer Use &amp; Record &amp; Replay</div>
-<div class="case-evidence case-evidence--replay"><div class="case-evidence__copy replay-flow"><div class="replay-flow__steps"><div class="replay-flow__step"><strong>录制</strong></div><div class="replay-flow__arrow">↓</div><div class="replay-flow__step"><strong>AI</strong></div><div class="replay-flow__arrow">↓</div><div class="replay-flow__step"><strong>Skills</strong></div></div></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--replay"><div class="replay-video"><video src="./public/record-replay.mp4" autoplay muted playsinline></video></div></div><div class="replay-skill-caption"><span>Record &amp; Replay 生成的 <strong>UniApp 打包 Skill</strong></span></div></div></div>
+<div class="case-evidence case-evidence--replay"><div class="case-evidence__copy replay-flow"><div class="replay-flow__steps"><div class="replay-flow__step"><strong>录制</strong></div><div class="replay-flow__arrow">↓</div><div class="replay-flow__step"><strong>AI</strong></div><div class="replay-flow__arrow">↓</div><div class="replay-flow__step"><strong>Skills</strong></div></div></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--replay"><div class="replay-video"><video :src="'./record-replay.mp4'" autoplay muted playsinline></video></div></div><div class="replay-skill-caption"><span>Record &amp; Replay 生成的 <strong>UniApp 打包 Skill</strong></span></div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -281,7 +281,7 @@ title: Code Review
 ---
 
 <div class="iframe-heading">Code Review</div>
-<div class="case-evidence"><div class="case-evidence__copy"><h2>大模型检查代码</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--review-bot"><img src="./public/code-review-bot.jpg" alt="企业微信 Code Review 机器人" /></div><div class="case-evidence__annotation">企业微信 Code Review 机器人</div></div></div>
+<div class="case-evidence"><div class="case-evidence__copy"><h2>大模型检查代码</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--review-bot"><img :src="'./code-review-bot.jpg'" alt="企业微信 Code Review 机器人" /></div><div class="case-evidence__annotation">企业微信 Code Review 机器人</div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -295,8 +295,8 @@ title: Code Review
   <div class="case-evidence__visual">
     <div class="mr-review">
       <div class="mr-review__stage">
-        <div class="mr-review__media mr-review__media--found"><img src="./public/review-mr-found.png" alt="GitLab MR 中发现的问题" /></div>
-        <div v-click class="mr-review__media mr-review__media--solved"><img src="./public/review-mr-solved.jpeg" alt="GitLab MR 中修复的问题" /></div>
+        <div class="mr-review__media mr-review__media--found"><img :src="'./review-mr-found.png'" alt="GitLab MR 中发现的问题" /></div>
+        <div v-click class="mr-review__media mr-review__media--solved"><img :src="'./review-mr-solved.jpeg'" alt="GitLab MR 中修复的问题" /></div>
       </div>
       <div class="case-evidence__annotation">GitLab MR 代码审查</div>
     </div>
@@ -310,7 +310,7 @@ title: CI/CD
 ---
 
 <div class="iframe-heading">CI/CD</div>
-<div class="case-evidence case-evidence--teamcity"><div class="case-evidence__copy"><h2>持续化集成部署</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--teamcity"><img src="./public/teamcity-build-history.png" alt="TeamCity 构建记录" /></div><div class="case-evidence__annotation">TeamCity</div></div></div>
+<div class="case-evidence case-evidence--teamcity"><div class="case-evidence__copy"><h2>持续化集成部署</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image case-evidence__media--teamcity"><img :src="'./teamcity-build-history.png'" alt="TeamCity 构建记录" /></div><div class="case-evidence__annotation">TeamCity</div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -318,7 +318,7 @@ title: Memory
 ---
 
 <div class="iframe-heading">Memory</div>
-<div class="case-evidence case-evidence--memory-result"><div class="case-evidence__copy"><h2>记住重要的内容</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image memory-result"><img src="./public/nowledge-mem-timeline.png" alt="Nowledge Mem 时间线效果图" /></div><div class="case-evidence__annotation">Nowledge Mem 时间线效果</div></div></div>
+<div class="case-evidence case-evidence--memory-result"><div class="case-evidence__copy"><h2>记住重要的内容</h2></div><div class="case-evidence__visual"><div class="case-evidence__media case-evidence__media--image memory-result"><img :src="'./nowledge-mem-timeline.png'" alt="Nowledge Mem 时间线效果图" /></div><div class="case-evidence__annotation">Nowledge Mem 时间线效果</div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -326,7 +326,7 @@ title: Observability / SigNoz
 ---
 
 <div class="iframe-heading">Observability</div>
-<div class="case-evidence observability-evidence"><div class="case-evidence__copy"><h2>系统持续监测</h2></div><div class="case-evidence__visual observability-single"><div class="observability-stage"><div class="observability-media"><img src="./public/SigNoz.png" alt="SigNoz 可观测性面板" /></div><div v-click class="observability-media observability-media--next"><img src="./public/SigNozMCPAndNotice.JPG" alt="SigNoz MCP 与告警通知" /></div></div><div class="observability-single__caption case-evidence__annotation"><span class="observability-single__base-caption">SigNoz 可观测性面板</span><span class="observability-single__next-caption">SigNoz Alert 和 MCP</span></div></div></div>
+<div class="case-evidence observability-evidence"><div class="case-evidence__copy"><h2>系统持续监测</h2></div><div class="case-evidence__visual observability-single"><div class="observability-stage"><div class="observability-media"><img :src="'./SigNoz.png'" alt="SigNoz 可观测性面板" /></div><div v-click class="observability-media observability-media--next"><img :src="'./SigNozMCPAndNotice.JPG'" alt="SigNoz MCP 与告警通知" /></div></div><div class="observability-single__caption case-evidence__annotation"><span class="observability-single__base-caption">SigNoz 可观测性面板</span><span class="observability-single__next-caption">SigNoz Alert 和 MCP</span></div></div></div>
 <DeckFooter section="Practice" />
 
 ---
@@ -338,15 +338,15 @@ title: Others
 <v-clicks>
   <div class="others-showcase__card">
     <div class="others-showcase__head"><h2>ONES-MCP 任务管理</h2><p>快速查询任务和缺陷，并直接更新处理状态，让 AI 进入团队协作流程</p></div>
-    <div class="others-showcase__window"><img src="./public/ones-mcp-latest.png" alt="ONES-MCP 缺陷查询示例" /></div>
+    <div class="others-showcase__window"><img :src="'./ones-mcp-latest.png'" alt="ONES-MCP 缺陷查询示例" /></div>
   </div>
   <div class="others-showcase__card">
     <div class="others-showcase__head"><h2>Document Skills 文档生成</h2><p>沉淀文档结构、风格与格式，让 AI 生成的交付物更清晰、更专业</p></div>
-    <div class="others-showcase__window others-showcase__window--document"><img src="./public/document-skills.png" alt="Document Skills 文档示例" /></div>
+    <div class="others-showcase__window others-showcase__window--document"><img :src="'./document-skills.png'" alt="Document Skills 文档示例" /></div>
   </div>
   <div class="others-showcase__card">
     <div class="others-showcase__head"><h2>Multi-Agent 并行执行</h2><p>多个 Agent 同时执行互不冲突的子任务，缩短复杂工作的整体交付时间</p></div>
-    <div class="others-showcase__window others-showcase__window--multi"><img class="others-showcase__asset" src="./public/multi-agents.jpg" alt="Multi-Agent 并行执行示例" /></div>
+    <div class="others-showcase__window others-showcase__window--multi"><img class="others-showcase__asset" :src="'./multi-agents.jpg'" alt="Multi-Agent 并行执行示例" /></div>
   </div>
   </v-clicks>
 </div>

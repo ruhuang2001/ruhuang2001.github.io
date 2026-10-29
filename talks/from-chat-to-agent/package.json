@@ -9,7 +9,7 @@
     "postinstall": "node ../../scripts/apply-security-patches.mjs"
   },
   "dependencies": {
-    "@slidev/cli": "52.17.0",
+    "@slidev/cli": "53.0.0",
     "@slidev/theme-default": "0.25.0",
     "vue": "^3.5.44"
   },

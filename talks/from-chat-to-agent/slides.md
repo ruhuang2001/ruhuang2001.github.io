@@ -55,25 +55,34 @@ title: 在开始之前
 
 <div class="iframe-heading">在开始之前</div>
 <div class="bun-embed">
-  <iframe src="https://bun.com/blog/bun-in-rust" title="Rewriting Bun in Rust" loading="lazy" />
+  <video
+    :src="'./bun-rust-workflow.mp4'"
+    autoplay
+    muted
+    loop
+    playsinline
+    title="Claude Code 动态工作流：把编译器错误当作工作队列（录自 bun.com/blog/bun-in-rust）"
+  ></video>
 </div>
 <div class="iframe-caption">来源：<a href="https://bun.com/blog/bun-in-rust">https://bun.com/blog/bun-in-rust</a></div>
 
 <style scoped>
 .bun-embed {
   position: absolute;
-  inset: 64px 60px 62px auto;
-  width: min(800px, calc(100% - 96px));
+  top: 64px;
+  right: 60px;
+  width: min(820px, calc(100% - 96px));
   border-radius: 16px;
   overflow: hidden;
-  background: #0a0a0a;
+  background: #0b0c10;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   animation: iframe-fade-in 0.6s cubic-bezier(0.25, 1, 0.5, 1) 0.2s both;
 }
 .iframe-caption {
   position: absolute;
   right: 60px;
   bottom: 28px;
-  width: min(800px, calc(100% - 96px));
+  width: min(820px, calc(100% - 96px));
   color: rgba(255, 255, 255, 0.55);
   font-size: 12px;
   text-align: right;
@@ -83,12 +92,10 @@ title: 在开始之前
   color: inherit;
   text-decoration: none;
 }
-.bun-embed iframe {
-  width: 1400px;
-  height: calc(100% + 11120px);
-  border: 0;
-  transform: translateY(-11120px) translateX(-128px);
-  transform-origin: 0 0;
+.bun-embed video {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 @keyframes iframe-fade-in {
   from { opacity: 0; transform: translateY(12px); }

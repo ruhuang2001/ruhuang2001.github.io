@@ -21,6 +21,9 @@
   "pnpm": {
     "overrides": {
       "dompurify": "3.4.17",
+      "hono": "4.13.18",
+      "@hono/node-server": "2.1.8",
+      "serialize-javascript": "7.1.4",
       "katex": "0.18.7",
       "markdown-it": "14.3.3",
       "floating-vue": "5.2.2",
